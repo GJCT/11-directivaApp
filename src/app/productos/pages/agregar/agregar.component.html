@@ -1,0 +1,49 @@
+
+
+<h1 class="mt-5">Agregar Producto</h1>
+<hr>
+
+<form [formGroup]="miForm" >
+    <div class="row g-3 align-item-center mb-3">
+        <div class="col-auto">
+            <label class="col-form-label">Nombre:</label>
+        </div>
+
+        <div class="col-auto">
+            <input class="form-control"
+            formControlName="nombre">
+        </div>
+
+        <div class="col-auto">
+            <span msn-error
+                  [msn]="texto1"
+                  [color]="color"
+                  [valido]="!error('nombre')">
+                  <!-- directPerso
+                    msn="Rellene ese campo"
+                  msnErr="Este campo es para un nombre" -->
+                  <!-- "miForm.get('nombre')?.invalid" -->
+                  Campo obligatorio
+            </span>
+        </div>
+    </div>
+
+    <div class="row mt-3,5">
+        <div class="col">
+            <button class="btn btn-primary"
+                    (click)="cambiarName()">
+                    Imprimir
+            </button>
+
+            <button class="btn btn-primary float-end"
+                    (click)="cambiarColor()">
+                    Cambiar
+            </button>
+        </div>
+    </div>
+</form>
+
+<h3 class="mt-5">Formulario</h3>
+
+<pre>Value: {{miForm.value}}</pre>
+<pre>Valid: {{miForm.valid | json}}</pre>
